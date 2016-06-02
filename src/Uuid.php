@@ -16,7 +16,7 @@ trait Uuid
         static::creating(function ($model) {
             $uuid = $model->generateUuid();
 
-            if (!empty($model->attributes[$model->getKeyName()])) {
+            if (empty($model->attributes[$model->getKeyName()])) {
                 $model->attributes[$model->getKeyName()] = $uuid;
             }
         });
