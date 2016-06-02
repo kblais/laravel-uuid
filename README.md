@@ -1,4 +1,4 @@
-# laravel-uuid
+# laravel-uuid [![Build Status](https://travis-ci.org/kblais/laravel-uuid.svg?branch=add-travis)](https://travis-ci.org/kblais/laravel-uuid)
 
 A simple library to use UUIDs as your Eloquent model's primary key.
 
