@@ -1,0 +1,30 @@
+{
+    "name": "kblais/laravel-uuid",
+    "description": "A simple library to use UUIDs as your Eloquent model's primary key.",
+    "require": {
+        "php": ">=5.4",
+        "ramsey/uuid": "^3.4",
+        "illuminate/database": "~5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0",
+        "orchestra/testbench": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kblais\\Uuid\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kblais\\Uuid\\Tests\\": "tests"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Killian Blais",
+            "email": "contact@killianblais.fr"
+        }
+    ]
+}
