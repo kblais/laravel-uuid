@@ -7,14 +7,21 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 
 trait Uuid
 {
-    protected $uuid_version = 4;
-    protected $uuid_string  = '';
-
+    /**
+     * disable priKey auto increment
+     *
+     * @return bool
+     */
     public function getIncrementing()
     {
         return false;
     }
 
+    /**
+     * auto generate Uuid for each saved model
+     *
+     * @return [type] [description]
+     */
     public static function bootUuid()
     {
         static::creating(function ($model) {
@@ -26,33 +33,58 @@ trait Uuid
         });
     }
 
+    /**
+     * generateUuid
+     *
+     * @return [type] [description]
+     */
     protected function generateUuid()
     {
         try {
-            switch ($this->uuid_version) {
-               case 1:
+            switch ($this->getUuidVersion()) {
+                 case 1:
                     return RamseyUuid::uuid1()->toString();
                     break;
 
-               case 3:
-                    return RamseyUuid::uuid3(RamseyUuid::NAMESPACE_DNS, $this->uuid_string)->toString();
+                 case 3:
+                    return RamseyUuid::uuid3(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
                     break;
 
-               case 4:
+                 case 4:
                     return RamseyUuid::uuid4()->toString();
                     break;
 
-               case 5:
-                    return RamseyUuid::uuid5(RamseyUuid::NAMESPACE_DNS, $this->uuid_string)->toString();
+                 case 5:
+                    return RamseyUuid::uuid5(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
                     break;
 
-               default:
+                 default:
                     break;
-           }
+             }
         } catch (UnsatisfiedDependencyException $e) {
             // Some dependency was not met. Either the method cannot be called on a
             // 32-bit system, or it can, but it relies on Moontoast\Math to be present.
             return 'Caught exception: '.$e->getMessage()."\n";
         }
+    }
+
+    /**
+     * getUuidVersion or default to 4
+     *
+     * @return Int
+     */
+    protected function getUuidVersion()
+    {
+        return $this->uuid_version ?: 4;
+    }
+
+    /**
+     * getUuidString for uuid 3/5
+     *
+     * @return string
+     */
+    protected function getUuidString()
+    {
+        return $this->uuid_string ?: '';
     }
 }
