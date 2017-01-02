@@ -8,7 +8,7 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 trait Uuid
 {
     /**
-     * disable priKey auto increment
+     * disable priKey auto increment.
      *
      * @return bool
      */
@@ -18,7 +18,7 @@ trait Uuid
     }
 
     /**
-     * auto generate Uuid for each saved model
+     * auto generate Uuid for each saved model.
      *
      * @return [type] [description]
      */
@@ -34,7 +34,7 @@ trait Uuid
     }
 
     /**
-     * generateUuid
+     * generateUuid.
      *
      * @return [type] [description]
      */
@@ -42,25 +42,25 @@ trait Uuid
     {
         try {
             switch ($this->getUuidVersion()) {
-                 case 1:
+                case 1:
                     return RamseyUuid::uuid1()->toString();
                     break;
 
-                 case 3:
+                case 3:
                     return RamseyUuid::uuid3(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
                     break;
 
-                 case 4:
+                case 4:
                     return RamseyUuid::uuid4()->toString();
                     break;
 
-                 case 5:
+                case 5:
                     return RamseyUuid::uuid5(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
                     break;
 
-                 default:
+                default:
                     break;
-             }
+            }
         } catch (UnsatisfiedDependencyException $e) {
             // Some dependency was not met. Either the method cannot be called on a
             // 32-bit system, or it can, but it relies on Moontoast\Math to be present.
@@ -69,9 +69,9 @@ trait Uuid
     }
 
     /**
-     * getUuidVersion or default to 4
+     * getUuidVersion or default to 4.
      *
-     * @return Int
+     * @return int
      */
     protected function getUuidVersion()
     {
@@ -79,7 +79,7 @@ trait Uuid
     }
 
     /**
-     * getUuidString for uuid 3/5
+     * getUuidString for uuid 3/5.
      *
      * @return string
      */
