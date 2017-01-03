@@ -3,7 +3,9 @@
 namespace Kblais\Uuid\Tests;
 
 use Illuminate\Http\Request;
+use Kblais\Uuid\Exception\BadUuidVersionException;
 use Kblais\Uuid\Tests\Models\Post;
+use Kblais\Uuid\Tests\Models\City;
 use Kblais\Uuid\Tests\Models\User;
 use Ramsey\Uuid\Uuid;
 
@@ -32,5 +34,14 @@ class UuidTest extends TestCase
             Uuid::isValid($user->id),
             'The id is not a valid UUID'
         );
+    }
+
+    public function testBadVersionExceptionIsThrown()
+    {
+        $this->setExpectedException(BadUuidVersionException::class);
+
+        $city = City::create([
+            'name' => 'Nantes',
+        ]);
     }
 }
