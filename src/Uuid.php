@@ -2,6 +2,7 @@
 
 namespace Kblais\Uuid;
 
+use Kblais\Uuid\Exception\BadUuidVersionException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
 trait Uuid
@@ -49,7 +50,7 @@ trait Uuid
             case 5:
                 return RamseyUuid::uuid5(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
             default:
-                break;
+                throw new BadUuidVersionException;
         }
     }
 
