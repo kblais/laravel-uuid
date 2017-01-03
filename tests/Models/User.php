@@ -12,8 +12,5 @@ class User extends Model
 
     protected $fillable = ['name', 'email'];
 
-    protected function generateUuid()
-    {
-        return RamseyUuid::uuid1()->toString();
-    }
+    protected $uuid_version = 1;
 }
