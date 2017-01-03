@@ -17,7 +17,10 @@ abstract class TestCase extends Orchestra
         ]);
 
         $this->beforeApplicationDestroyed(function () {
-            $this->artisan('migrate:rollback');
+            $this->artisan('migrate:rollback', [
+                '--database' => 'testbench',
+                '--realpath' => realpath(__DIR__ . '/migrations'),
+            ]);
         });
     }
 
