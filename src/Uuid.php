@@ -42,20 +42,12 @@ trait Uuid
         switch ($this->getUuidVersion()) {
             case 1:
                 return RamseyUuid::uuid1()->toString();
-                break;
-
             case 3:
                 return RamseyUuid::uuid3(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
-                break;
-
             case 4:
                 return RamseyUuid::uuid4()->toString();
-                break;
-
             case 5:
                 return RamseyUuid::uuid5(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
-                break;
-
             default:
                 break;
         }
