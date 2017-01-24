@@ -14,18 +14,24 @@ Require this package with Composer :
 composer require kblais/laravel-uuid
 ```
 
+* the package internally use [ramsey/uuid](https://packagist.org/packages/ramsey/uuid) to generate the UUIDs.
+
 ## Usage
 
 First, your model's column must be a 36 characters column :
 
+* Laravel v4
+
 ```php
 $table->char('id', 36);
+$table->primary('id');
 ```
 
-Since Laravel 5.1, you can use the `uuid()` shortcut method :
+* Laravel v5+
 
 ```php
 $table->uuid('id');
+$table->primary('id');
 ```
 
 Then, just add the `Kblais\Uuid\Uuid` trait to your model, and you're done :
@@ -44,13 +50,11 @@ class User extends Model
 }
 ```
 
-Version 4 UUIDs are used by default. You can change this by overriding the `generateUuid()` function. For example :
+Version 4 UUIDs are used by default. You can change this by overriding the `$uuid_version & $uuid_string` variables. For example :
 
 ```php
-protected function generateUuid()
-{
-    return Ramsey\Uuid\Uuid::uuid1()->toString();
-}
+protected $uuid_version = 1;
+protected $uuid_string  = ''; // only needed when $uuid_version is "3 or 5"
 ```
 
-The library used to generate UUIDs here only supports versions 1, 3, 4 and 5.
+The supported UUIDs versions here are "1, 3, 4 and 5".
