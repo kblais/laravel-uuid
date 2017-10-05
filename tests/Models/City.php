@@ -11,5 +11,5 @@ class City extends Model
 
     protected $fillable = ['name'];
 
-    protected $uuid_version = 6;
+    protected $uuidVersion = 6;
 }

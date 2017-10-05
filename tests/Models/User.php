@@ -12,5 +12,5 @@ class User extends Model
 
     protected $fillable = ['name', 'email'];
 
-    protected $uuid_version = 1;
+    protected $uuidVersion = 1;
 }
