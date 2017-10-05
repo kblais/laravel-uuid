@@ -2,6 +2,7 @@
 
 namespace Kblais\Uuid\Tests;
 
+use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -10,16 +11,12 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->artisan('migrate', [
-            '--database' => 'testbench',
-            '--realpath' => realpath(__DIR__ . '/migrations'),
-        ]);
+        $this->loadMigrationsFrom(realpath(__DIR__ . '/migrations'));
+
+        $this->artisan('migrate');
 
         $this->beforeApplicationDestroyed(function () {
-            $this->artisan('migrate:rollback', [
-                '--database' => 'testbench',
-                '--realpath' => realpath(__DIR__ . '/migrations'),
-            ]);
+            $this->artisan('migrate:rollback');
         });
     }
 
@@ -31,5 +28,10 @@ abstract class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [ConsoleServiceProvider::class];
     }
 }
