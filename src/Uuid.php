@@ -20,7 +20,7 @@ trait Uuid
     /**
      * auto generate Uuid for each saved model.
      *
-     * @return [type] [description]
+     * @return void
      */
     public static function bootUuid()
     {
@@ -34,9 +34,9 @@ trait Uuid
     }
 
     /**
-     * generateUuid.
+     * Generate the UUID.
      *
-     * @return [type] [description]
+     * @return string
      */
     protected function generateUuid()
     {
