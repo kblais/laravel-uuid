@@ -61,7 +61,7 @@ trait Uuid
      */
     protected function getUuidVersion()
     {
-        return $this->uuid_version ?: 4;
+        return $this->uuidVersion ?: 4;
     }
 
     /**
@@ -71,6 +71,6 @@ trait Uuid
      */
     protected function getUuidString()
     {
-        return $this->uuid_string ?: '';
+        return $this->uuidString ?: '';
     }
 }

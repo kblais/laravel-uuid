@@ -50,11 +50,11 @@ class User extends Model
 }
 ```
 
-Version 4 UUIDs are used by default. You can change this by overriding the `$uuid_version & $uuid_string` variables. For example :
+Version 4 UUIDs are used by default. You can change this by overriding the `$uuidVersion & $uuidString` variables. For example :
 
 ```php
-protected $uuid_version = 1;
-protected $uuid_string  = ''; // only needed when $uuid_version is "3 or 5"
+protected $uuidVersion = 1;
+protected $uuidString  = ''; // only needed when $uuidVersion is "3 or 5"
 ```
 
 The supported UUIDs versions here are "1, 3, 4 and 5".
