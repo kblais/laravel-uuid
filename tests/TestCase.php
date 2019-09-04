@@ -7,7 +7,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -28,10 +28,5 @@ abstract class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [ConsoleServiceProvider::class];
     }
 }
