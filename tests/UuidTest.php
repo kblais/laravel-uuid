@@ -38,7 +38,7 @@ class UuidTest extends TestCase
 
     public function testBadVersionExceptionIsThrown()
     {
-        $this->setExpectedException(BadUuidVersionException::class);
+        $this->expectException(BadUuidVersionException::class);
 
         $city = City::create([
             'name' => 'Nantes',

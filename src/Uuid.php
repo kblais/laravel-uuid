@@ -17,6 +17,11 @@ trait Uuid
         return false;
     }
 
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
     /**
      * auto generate Uuid for each saved model.
      *
