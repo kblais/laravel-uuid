@@ -2,16 +2,15 @@
 
 namespace Kblais\Uuid\Tests;
 
-use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->artisan('migrate');
 

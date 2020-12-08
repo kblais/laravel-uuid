@@ -24,8 +24,6 @@ trait Uuid
 
     /**
      * auto generate Uuid for each saved model.
-     *
-     * @return void
      */
     public static function bootUuid()
     {
@@ -55,7 +53,7 @@ trait Uuid
             case 5:
                 return RamseyUuid::uuid5(RamseyUuid::NAMESPACE_DNS, $this->getUuidString())->toString();
             default:
-                throw new BadUuidVersionException;
+                throw new BadUuidVersionException();
         }
     }
 
