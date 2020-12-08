@@ -3,20 +3,19 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class Posts extends Migration
+class CreateCitiesTestTable extends Migration
 {
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->timestamps();
-            $table->string('title');
-            $table->uuid('author_id')->nullable();
+            $table->string('name');
         });
     }
 
     public function down()
     {
-        Schema::drop('posts');
+        Schema::drop('cities');
     }
 }

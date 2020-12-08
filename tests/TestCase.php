@@ -11,7 +11,7 @@ abstract class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(realpath(__DIR__ . '/migrations'));
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         $this->artisan('migrate');
 
