@@ -3,20 +3,20 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class Users extends Migration
+class CreatePostsTestTable extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->timestamps();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('title');
+            $table->uuid('author_id')->nullable();
         });
     }
 
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('posts');
     }
 }

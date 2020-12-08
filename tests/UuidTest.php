@@ -2,14 +2,17 @@
 
 namespace Kblais\Uuid\Tests;
 
-use Illuminate\Http\Request;
 use Kblais\Uuid\Exception\BadUuidVersionException;
-use Kblais\Uuid\Tests\Models\Post;
 use Kblais\Uuid\Tests\Models\City;
+use Kblais\Uuid\Tests\Models\Post;
 use Kblais\Uuid\Tests\Models\User;
 use Ramsey\Uuid\Uuid;
 
-class UuidTest extends TestCase
+/**
+ * @internal
+ * @coversNothing
+ */
+final class UuidTest extends TestCase
 {
     public function testUuid4Applies()
     {
