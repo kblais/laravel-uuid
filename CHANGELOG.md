@@ -1,5 +1,11 @@
 # Change log
 
+## 2.0.0
+
+- Add Laravel ^9.0 compatibility
+- Remove PHP 7.4 compatibility
+- Remove Laravel 6/7 compatibility
+
 ## 1.0.0
 
 Stable version release :
