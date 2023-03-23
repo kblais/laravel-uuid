@@ -10,6 +10,7 @@ use Ramsey\Uuid\Uuid;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 final class UuidTest extends TestCase
