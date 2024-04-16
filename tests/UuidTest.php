@@ -8,11 +8,6 @@ use Kblais\Uuid\Tests\Models\Post;
 use Kblais\Uuid\Tests\Models\User;
 use Ramsey\Uuid\Uuid;
 
-/**
- * @internal
- *
- * @coversNothing
- */
 final class UuidTest extends TestCase
 {
     public function testUuid4Applies()
