@@ -64,7 +64,11 @@ trait Uuid
      */
     protected function getUuidVersion()
     {
-        return $this->uuidVersion ?: 4;
+        if (property_exists($this, 'uuidVersion')) {
+            return $this->uuidVersion;
+        }
+
+        return 4;
     }
 
     /**
@@ -74,6 +78,10 @@ trait Uuid
      */
     protected function getUuidString()
     {
-        return $this->uuidString ?: '';
+        if (property_exists($this, 'uuidString')) {
+            return $this->uuidString;
+        }
+
+        return '';
     }
 }

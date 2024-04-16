@@ -8,6 +8,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.5",
+        "larastan/larastan": "^2.9",
         "mockery/mockery": "^1.3.2",
         "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0"
     },
@@ -15,11 +16,15 @@
         "tests:cs": [
             "@php ./vendor/bin/php-cs-fixer fix"
         ],
+        "tests:stan": [
+            "@php ./vendor/bin/phpstan analyze"
+        ],
         "tests:unit": [
             "@php ./vendor/bin/phpunit --colors"
         ],
         "tests": [
             "@tests:cs",
+            "@tests:stan",
             "@tests:unit"
         ]
     },
