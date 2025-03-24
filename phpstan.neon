@@ -1,5 +1,6 @@
 includes:
     - ./vendor/larastan/larastan/extension.neon
+
 parameters:
     paths:
         - src
@@ -8,4 +9,8 @@ parameters:
     # The level 8 is the highest level
     level: 5
 
-    checkMissingIterableValueType: false
+    ignoreErrors:
+        -
+            identifier: function.alreadyNarrowedType
+            path: tests/Models/
+            count: 2

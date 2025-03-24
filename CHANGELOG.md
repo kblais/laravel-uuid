@@ -1,5 +1,17 @@
 # Change log
 
+## 2.3.0
+
+- Add Laravel ^12.0 compatibility
+
+## 2.2.0
+
+- Add Laravel ^11.0 compatibility
+
+## 2.1.0
+
+- Add Laravel ^10.0 compatibility
+
 ## 2.0.0
 
 - Add Laravel ^9.0 compatibility
